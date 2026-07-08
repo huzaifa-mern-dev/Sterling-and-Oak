@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  --color-navy: #0b1b3d;
+  --color-silver: #8a9aab;
+  --color-bg: #ffffff;
+  --color-text-dark: #111827;
+  --color-text-muted: #4b5563;
+  --color-accent-light: #f0f3f7;
+}
+
+@theme {
+  --font-sans: var(--font-poppins);
+  --font-heading: var(--font-outfit);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+body {
+  color: var(--color-text-dark);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrolling & focus */
+::selection {
+  background-color: #0b1b3d22;
+  color: var(--color-navy);
+}
+
+/* Fade-up keyframes for staggered animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.7s ease forwards;
+}
+
+.animate-fade-up-delay-1 {
+  animation: fadeUp 0.7s 0.15s ease both;
+}
+
+.animate-fade-up-delay-2 {
+  animation: fadeUp 0.7s 0.3s ease both;
+}
+
+.animate-fade-up-delay-3 {
+  animation: fadeUp 0.7s 0.45s ease both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.9s 0.2s ease both;
+}
+
+/* Nav blur overlay */
+.nav-blur {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.88);
+}
+
+/* Decorative accent line */
+.accent-line {
+  width: 48px;
+  height: 3px;
+  background-color: var(--color-navy);
+  border-radius: 2px;
+}
