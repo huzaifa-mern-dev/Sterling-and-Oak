@@ -1,12 +1,28 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { useRef, useState } from "react";
+import Image from "next/image";
+import { ArrowRight, Play, Pause } from "lucide-react";
 
 interface HeroProps {
   onOpenModal: () => void;
 }
 
 export default function Hero({ onOpenModal }: HeroProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  const togglePlayPause = () => {
+    if (!videoRef.current) return;
+    if (isPlaying) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
   return (
     <section
       id="home"
@@ -64,7 +80,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </button>
               <a
-                href="#services"
+                href="https://aliceblue-hummingbird-768181.hostingersite.com/"
                 id="hero-secondary-cta"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-gray-200 text-[#0B1B3D] font-semibold px-8 py-4 rounded-xl hover:border-[#0B1B3D]/40 hover:bg-gray-50 hover:-translate-y-0.5 active:scale-95 transition-all duration-300 text-base"
               >
@@ -72,26 +88,50 @@ export default function Hero({ onOpenModal }: HeroProps) {
               </a>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-5 mt-10 animate-fade-in">
-              {[
-                { value: "500+", label: "Clients Served" },
-                { value: "4.9★", label: "Google Rating" },
-                { value: "CIMA", label: "Regulated" },
-              ].map((stat) => (
-                <div key={stat.label} className="flex flex-col">
-                  <span className="text-lg font-bold text-[#0B1B3D]" style={{ fontFamily: "var(--font-outfit)" }}>
-                    {stat.value}
-                  </span>
-                  <span className="text-xs text-[#8A9AAB]">{stat.label}</span>
-                </div>
-              ))}
+            <div className="flex items-center gap-6 mt-8 animate-fade-in">
+              <Image
+                src="/google-badge.webp"
+                alt="Google Customer Reviews"
+                width={150}
+                height={60}
+                className="h-15 md:h-20 w-auto object-contain"
+              />
+              <Image
+                src="/trustpilot-badge.png"
+                alt="Trustpilot 5 Star Reviews"
+                width={150}
+                height={60}
+                className="h-15 md:h-20 w-auto object-contain"
+              />
             </div>
           </div>
 
           <div className="order-2 animate-fade-in">
             <div className="relative w-full aspect-[1/1] lg:aspect-[3/4] max-h-[580px] rounded-2xl overflow-hidden bg-[#0B1B3D] shadow-2xl">
-              <video src="/hero-video.mp4" playsInline autoPlay muted loop preload="none" poster="/video-poster.jpg" className="absolute inset-0 w-full h-full object-cover" />
+              <video
+                ref={videoRef}
+                src="/hero-video.mp4"
+                playsInline
+                autoPlay
+                muted
+                loop
+                preload="none"
+                poster="/video-poster.jpg"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+
+              <button
+                onClick={togglePlayPause}
+                aria-label={isPlaying ? "Pause video" : "Play video"}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center cursor-pointer hover:bg-white/30 transition-all border border-white/30 shadow-lg"
+              >
+                {isPlaying ? (
+                  <Pause className="w-6 h-6 text-white" aria-hidden="true" />
+                ) : (
+                  <Play className="w-6 h-6 text-white ml-0.5" aria-hidden="true" />
+                )}
+              </button>
             </div>
           </div>
         </div>
