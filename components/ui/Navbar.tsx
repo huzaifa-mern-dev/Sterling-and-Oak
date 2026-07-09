@@ -29,7 +29,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 nav-blur border-b border-gray-100/80">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100/80">
       <div className="max-w-7xl mx-auto px-5 py-3 sm:px-8 lg:px-12">
         <nav className="flex items-center justify-between h-16" aria-label="Main navigation">
           <a href="/" className="flex items-center group" aria-label="Sterling & Oak — Home">
