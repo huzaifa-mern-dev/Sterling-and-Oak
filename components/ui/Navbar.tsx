@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
 
 interface NavbarProps {
@@ -32,9 +33,12 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-5 py-3 sm:px-8 lg:px-12">
         <nav className="flex items-center justify-between h-16" aria-label="Main navigation">
           <a href="/" className="flex items-center group" aria-label="Sterling & Oak — Home">
-            <img 
+            <Image 
               src="/logo.png" 
               alt="Sterling & Oak Logo" 
+              width={180}
+              height={60}
+              priority
               className="w-[180px] h-[60px] object-contain transition-transform duration-300 group-hover:scale-105" 
             />
           </a>
@@ -47,7 +51,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
                   className="relative px-4 py-2 text-sm text-[#4B5563] font-medium hover:text-[#0B1B3D] transition-colors duration-200 rounded-lg hover:bg-gray-50 flex items-center gap-1 font-sans group/link"
                 >
                   {link.label}
-                  {link.dropdown && <ChevronDown className="w-3.5 h-3.5 group-hover/dropdown:rotate-180 transition-transform duration-200" />}
+                  {link.dropdown && <ChevronDown className="w-3.5 h-3.5 group-hover/dropdown:rotate-180 transition-transform duration-200" aria-hidden="true" />}
                   <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[#0B1B3D] rounded-full transition-all duration-300 group-hover/link:w-4" />
                 </a>
                 
@@ -88,7 +92,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
           >
-            {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {menuOpen ? <X className="w-5 h-5" aria-hidden="true" /> : <Menu className="w-5 h-5" aria-hidden="true" />}
           </button>
         </nav>
 
@@ -109,7 +113,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
                     <details className="group">
                       <summary className="flex items-center justify-between px-4 py-2.5 text-sm text-[#4B5563] font-medium rounded-lg hover:bg-gray-50 hover:text-[#0B1B3D] cursor-pointer list-none">
                         {link.label}
-                        <ChevronDown className="w-4 h-4 transition-transform group-open:rotate-180" />
+                        <ChevronDown className="w-4 h-4 transition-transform group-open:rotate-180" aria-hidden="true" />
                       </summary>
                       <div className="pl-4 pr-2 pb-2">
                         {link.dropdown.map((sub) => (
@@ -133,7 +137,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
                 onClick={() => { setMenuOpen(false); onOpenModal(); }}
                 className="w-full flex items-center justify-center gap-2 bg-[#0B1B3D] text-white text-sm font-semibold px-5 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
               >
-                <Phone className="w-3.5 h-3.5" />
+                <Phone className="w-3.5 h-3.5" aria-hidden="true" />
                 Book Free Consultation
               </button>
             </div>

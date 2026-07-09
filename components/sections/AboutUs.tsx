@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 const STATS = [
   { value: "500+", label: "Businesses Served" },
@@ -72,10 +73,11 @@ export default function AboutUs() {
 
           <div className="relative">
             <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-[#dde3ea] shadow-2xl shadow-[#0B1B3D]/8">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80&auto=format&fit=crop"
                 alt="Sterling & Oak accountants in a professional London office"
+                width={800}
+                height={1000}
                 className="w-full h-full object-cover"
                 loading="lazy"
               />

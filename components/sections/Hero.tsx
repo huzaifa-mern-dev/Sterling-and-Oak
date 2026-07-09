@@ -90,7 +90,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
           <div className="order-2 animate-fade-in">
             <div className="relative w-full aspect-[1/1] lg:aspect-[3/4] max-h-[580px] rounded-2xl overflow-hidden bg-[#0B1B3D] shadow-2xl">
-              <video src="/hero-video.mp4"loop playsInline controls className="absolute inset-0 w-full h-full object-cover" />
+              <video src="/hero-video.mp4" playsInline autoPlay muted loop preload="none" poster="/video-poster.jpg" className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
             </div>
           </div>

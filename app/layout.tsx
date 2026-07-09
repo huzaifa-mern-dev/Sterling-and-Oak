@@ -17,15 +17,15 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Sterling & Oak | Dedicated London Accountants for Growing Businesses",
+  title: "Sterling & Oak | Premium London Accountants for Small Businesses",
   description:
-    "Reliable, responsive, and personal accounting services for sole traders and limited companies across London. CIMA regulated, 4.9/5 on Google Reviews.",
+    "Dedicated, reliable, and personal accounting services for London's sole traders and limited companies turning over under £500k. Fixed fees, CIMA regulated.",
   keywords:
     "London accountants, accounting firm, sole trader accountant, limited company accountant, tax services, bookkeeping London",
   openGraph: {
-    title: "Sterling & Oak | London Accounting Firm",
+    title: "Sterling & Oak | Premium London Accountants for Small Businesses",
     description:
-      "Dedicated accountants for growing businesses across London. Personal, reliable, and responsive service.",
+      "Dedicated, reliable, and personal accounting services for London's sole traders and limited companies turning over under £500k. Fixed fees, CIMA regulated.",
     type: "website",
     locale: "en_GB",
   },
